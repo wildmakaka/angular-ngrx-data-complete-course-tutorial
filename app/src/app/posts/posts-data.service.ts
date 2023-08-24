@@ -25,4 +25,17 @@ export class PostsDataService extends DefaultDataService<Post> {
         })
       );
   }
+
+  override add(post: Post): Observable<Post> {
+    return this.http
+      .post<{ name: string }>(
+        `https://vue-completecourse.firebaseio.com/posts.json`,
+        post
+      )
+      .pipe(
+        map((data) => {
+          return { ...post, id: data.name };
+        })
+      );
+  }
 }
