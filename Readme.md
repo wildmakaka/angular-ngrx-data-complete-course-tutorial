@@ -1,8 +1,7 @@
 # [[YouTube] [Leela Web Dev] Angular NGRX Complete Course Tutorial [ENG, 2021]](https://www.youtube.com/playlist?list=PL_euSNU_eLbdg0gKbR8zmVJb4xLgHR7BX)
 
-<br/>
-
-[My Deploy](https://angular-ngrx-complete-course-tutorial.vercel.app/)
+**original src**  
+https://github.com/leelanarasimha/ngrx-data/
 
 <br/>
 
