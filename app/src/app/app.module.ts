@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { entityConfig } from 'src/app/entity-metadata';
 import { PostsDataService } from 'src/app/posts/posts-data.service';
+import { PostsResolver } from 'src/app/posts/posts.resolver';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AddPostComponent } from './posts/add-post/add-post.component';
@@ -39,7 +40,7 @@ import { SinglePostComponent } from './posts/single-post/single-post.component';
     AddPostComponent,
     HomeComponent,
   ],
-  providers: [PostsDataService],
+  providers: [PostsDataService, PostsResolver],
   bootstrap: [AppComponent],
 })
 export class AppModule {
