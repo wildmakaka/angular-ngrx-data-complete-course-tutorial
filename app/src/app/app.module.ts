@@ -1,28 +1,19 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, isDevMode } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { EntityDataModule, EntityDataService } from '@ngrx/data';
+import { EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { entityConfig } from 'src/app/entity-metadata';
-import { PostsDataService } from 'src/app/posts/posts-data.service';
-import { PostsResolver } from 'src/app/posts/posts.resolver';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AddPostComponent } from './posts/add-post/add-post.component';
-import { EditPostComponent } from './posts/edit-post/edit-post.component';
-import { PostsListComponent } from './posts/posts-list/posts-list.component';
-import { SinglePostComponent } from './posts/single-post/single-post.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
@@ -32,24 +23,12 @@ import { SinglePostComponent } from './posts/single-post/single-post.component';
       traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
     }),
     EffectsModule.forRoot([]),
-    EntityDataModule.forRoot(entityConfig),
+    EntityDataModule.forRoot({}),
   ],
-  declarations: [
-    AppComponent,
-    PostsListComponent,
-    SinglePostComponent,
-    EditPostComponent,
-    AddPostComponent,
-    HomeComponent,
-  ],
-  providers: [PostsDataService, PostsResolver],
+  declarations: [AppComponent, HomeComponent],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(
-    entityDataService: EntityDataService,
-    postsDataService: PostsDataService
-  ) {
-    entityDataService.registerService('Post', postsDataService);
-  }
+  constructor() {}
 }
