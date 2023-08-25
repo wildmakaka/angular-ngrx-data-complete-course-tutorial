@@ -27,7 +27,10 @@
           >Update</a
         >&nbsp;
         <button class="btn btn-danger" (click)="onDeletePost($event, post.id!)">
-          Delete
+          Delete</button
+        >&nbsp;
+        <button class="btn btn-info" [routerLink]="['details', post.id]">
+          View Details
         </button>
       </td>
     </tr>
